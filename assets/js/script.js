@@ -40,8 +40,21 @@ function checkAnswer() {
 
 }
 
+/**
+ * Get arguments for question from the DOM and return the correct answer.
+ */
 function calculateCorrectAnswer() {
 
+    let operand1 = parseInt(document.getElementById('operand1').innerText);
+    let operand2 = parseInt(document.getElementById('operand2').innerText);
+    let operator = document.getElementById('operator').innerText;
+
+    if (operator === '+') {
+        return [operand1 + operand2, 'addition'];
+    } else {
+        alert(`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}`;
+    }
 }
 
 function incrementScore() {
@@ -57,7 +70,7 @@ function displayAdditionQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = '+';
-    
+
 }
 
 function displaySubtractQuestion() {
